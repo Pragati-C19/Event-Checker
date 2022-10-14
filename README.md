@@ -1,2 +1,2 @@
 # Event-Checker
-The Event List Calender
+The Event List Calendar
