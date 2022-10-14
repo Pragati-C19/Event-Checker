@@ -2,13 +2,13 @@ import React from "react";
 import "./App.css";
 import AddEvent from "./components/add-event";
 import Navbar from "./components/navbar";
-import BasicTable from "./components/view-event-list";
+import EventList from "./components/view-event-list";
 
 function App() {
   return (
     <>
       <Navbar />
-      <BasicTable />
+      <EventList />
       <AddEvent />
     </>
   );
