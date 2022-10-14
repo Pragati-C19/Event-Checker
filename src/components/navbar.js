@@ -175,7 +175,7 @@ const PrimarySearchAppBar = () => {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            
+            Event Checker
           </Typography>
           <Search>
             <SearchIconWrapper>
