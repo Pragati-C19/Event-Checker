@@ -69,10 +69,6 @@ const Navbar = () => {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
@@ -130,7 +126,7 @@ const Navbar = () => {
         <AppBar position="static" color="primary">
           <Toolbar>
             <IconButton edge="start" color="inherit" sx={{ mr: 2 }}>
-              <img src={logoImg} height="40px" width="40px" />
+              <img src={logoImg} height="50px" width="50px" />
             </IconButton>
 
             <Typography
