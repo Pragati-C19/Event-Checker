@@ -11,6 +11,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import logoImg from "../calender-icon.png";
 import { Button } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#1976d2",
+    },
+  },
+});
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -116,53 +126,50 @@ const Navbar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <img src={logoImg} height="40px" width="40px" />
-          </IconButton>
-
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            Event Checker
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search the Event…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Button variant="contained" color="success">
-            Add New Event
-          </Button>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
+      <ThemeProvider theme={darkTheme}>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <IconButton edge="start" color="inherit" sx={{ mr: 2 }}>
+              <img src={logoImg} height="40px" width="40px" />
             </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              Event Checker
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search the Event…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <Button variant="contained" color="success">
+              Add New Event
+            </Button>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
       {renderMobileMenu}
       {renderMenu}
     </Box>
