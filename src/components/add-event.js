@@ -5,6 +5,8 @@ import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
+import TypesOfEvent from "./type-of-event";
+
 
 //css for modal
 const modalStyle = {
@@ -19,30 +21,14 @@ const modalStyle = {
   p: 4,
 };
 
-const AddEvent = ({ onAdd }) => {
-  //title and description are input from user
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const AddEvent = ({}) => {
 
   //to open and close modal
-  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const isModalOpen = () => setModalOpen(true);
   const isModalClose = () => setModalOpen(false);
 
   //this alert msg is to see wheather the event is added or not
-  const onClick = (e) => {
-    e.preventDefault();
-
-    if (!title) {
-      alert("Please add a Event");
-      return;
-    }
-
-    onAdd({ title, description });
-
-    setTitle("");
-    setDescription("");
-  };
 
   return (
     <div>
@@ -85,13 +71,7 @@ const AddEvent = ({ onAdd }) => {
 
           {/* Third we have Dropdown Menu for types of Event | we will get Event type */}
           <div className="event-control">
-            <TextField
-              fullWidth
-              id="outlined-textarea"
-              label="Description"
-              placeholder="Add Event Description"
-              multiline
-            />
+            <TypesOfEvent/>
           </div>
 
           {/* Forth we have Start date Holder | we will see when the event starts */}
