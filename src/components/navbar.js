@@ -10,6 +10,7 @@ import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import logoImg from "../calender-icon.png";
+import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -144,6 +145,9 @@ const Navbar = () => {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <Button variant="contained" color="success">
+            Add New Event
+          </Button>
           <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
