@@ -1,2 +1,2 @@
-# Sync-Dreamer
+# Event-Checker
 The Event List Calender
