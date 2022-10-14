@@ -9,7 +9,7 @@ import InputBase from "@mui/material/InputBase";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import logoImg from "../calender-icon.png";
+import logoImg from "../calendar-icon.png";
 import { Button } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
