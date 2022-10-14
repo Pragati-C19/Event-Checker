@@ -4,6 +4,7 @@ import Modal from "@mui/material/Modal";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
+import { TextField } from "@mui/material";
 
 //css for modal
 const modalStyle = {
@@ -45,7 +46,10 @@ const AddEvent = ({ onAdd }) => {
 
   return (
     <div>
+      {/* When you click on mopen modal then modal will open */}
       <Button onClick={isModalOpen}>Open modal</Button>
+
+      {/*This is the content of modal */}
       <Modal
         open={modalOpen}
         onClose={isModalClose}
@@ -56,29 +60,63 @@ const AddEvent = ({ onAdd }) => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Add New Event
           </Typography>
-          <div className="add-event" onClick={onClick}>
-            <div className="event-control">
-              <label>Event Title</label>
-              <input
-                type="text"
-                placeholder="Add Event Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-            <div className="event-control">
-              <label>Description</label>
-              <input
-                type="text"
-                placeholder="Add Event Description"
-                value={description}
-                
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
 
-            <input type="submit" value="Save Event" className="btn btn-block" />
+          {/* First we have Title Holder | we will get event title */}
+          <div className="event-control">
+            <TextField
+              fullWidth
+              id="outlined-textarea"
+              label="Title"
+              placeholder="Add Event Title"
+              multiline
+            />
           </div>
+
+          {/* Second we have Description Holder | we will get event Description */}
+          <div className="event-control">
+            <TextField
+              fullWidth
+              id="outlined-textarea"
+              label="Description"
+              placeholder="Add Event Description"
+              multiline
+            />
+          </div>
+
+          {/* Third we have Dropdown Menu for types of Event | we will get Event type */}
+          <div className="event-control">
+            <TextField
+              fullWidth
+              id="outlined-textarea"
+              label="Description"
+              placeholder="Add Event Description"
+              multiline
+            />
+          </div>
+
+          {/* Forth we have Start date Holder | we will see when the event starts */}
+          <div className="event-control">
+            <TextField
+              fullWidth
+              id="outlined-textarea"
+              label="Description"
+              placeholder="Add Event Description"
+              multiline
+            />
+          </div>
+
+          {/* Fifth we have End date Holder | with the help of this we can see when the event ends */}
+          <div className="event-control">
+            <TextField
+              fullWidth
+              id="outlined-textarea"
+              label="Description"
+              placeholder="Add Event Description"
+              multiline
+            />
+          </div>
+
+          <input type="submit" value="Save Event" className="btn btn-block" />
         </Box>
       </Modal>
     </div>
