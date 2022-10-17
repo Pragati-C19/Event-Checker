@@ -14,6 +14,7 @@ const DatePicker=(props)=> {
   };
 
   return (
+    <div background-color="white">
     <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DesktopDatePicker
          label={props.userName}
@@ -23,6 +24,7 @@ const DatePicker=(props)=> {
           renderInput={(params) => <TextField {...params} />}
         />
     </LocalizationProvider>
+    </div>
   );
 }
 

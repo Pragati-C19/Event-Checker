@@ -43,7 +43,12 @@ const AddEvent = ({}) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={modalStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography
+            id="modal-modal-title"
+            variant="h4"
+            textAlign="center"
+            fontFamily="serif"
+          >
             Add New Event
           </Typography>
 
@@ -71,24 +76,21 @@ const AddEvent = ({}) => {
 
           {/* Third we have Dropdown Menu for types of Event | we will get Event type */}
           <div>
-            <TypesOfEvent />
+            <TypesOfEvent justifyContent="center" alignItems="center"/>
           </div>
           <br />
 
-          {/* Forth we have Start date Holder | we will see when the event starts */}
-          <div>
+          <Stack direction="row" spacing={2}>
+            {/* Forth we have Start date Holder | we will see when the event starts */}
             <DatePicker userName="Start Date" />
-          </div>
-          <br />
 
-          {/* Fifth we have End date Holder | with the help of this we can see when the event ends */}
-          <div>
+            {/* Fifth we have End date Holder | with the help of this we can see when the event ends */}
             <DatePicker userName="End Date" />
-          </div>
-          <br />
+          </Stack>
+          <br/>
 
           {/* You can add justifyContent="center" alignItems="center" here to center the buttons  */}
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
             <Button variant="outlined" color="success">
               Save
             </Button>

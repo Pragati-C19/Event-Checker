@@ -55,12 +55,12 @@ const TypesOfEvent = () => {
         aria-label="split button"
       >
         {/* select the type side button */}
-        <Button onClick={handleClick} color="success">
+        <Button onClick={handleClick} color="inherit">
           {types[selectedType]}
         </Button>
         <Button
           size="small" //this is for arrow button size
-          color="secondary"
+          color="inherit"
           aria-controls={typesMenu ? "split-button-menu" : undefined}
           aria-expanded={typesMenu ? "true" : undefined}
           aria-label="select merge strategy"
