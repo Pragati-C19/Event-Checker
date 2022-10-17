@@ -9,15 +9,21 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import { useState, useRef } from "react";
+import { HiCake } from "react-icons/hi"
+import {MdOutlineBusinessCenter} from "react-icons/md"
+import {MdOutlineFestival} from "react-icons/md"
+import {MdFamilyRestroom} from "react-icons/md"
+import {MdNotificationsActive} from "react-icons/md"
+import {GiSecretBook} from "react-icons/gi"
 
 const types = [
   "Select the Type",
-  "Cake",
-  "Bussiness",
-  "fire",
-  "Book",
-  "family",
-  "Red Dot",
+  <HiCake color="rgb(255, 0, 128)"/>,
+  <MdOutlineBusinessCenter color="rgb(141, 69, 17)"/>,
+  <MdOutlineFestival color="orange"/>,
+  <GiSecretBook color="rgb(0, 174, 255)"/>,
+  <MdFamilyRestroom color="green"/>,
+  <MdNotificationsActive color="red"/>
 ];
 
 const TypesOfEvent = () => {
