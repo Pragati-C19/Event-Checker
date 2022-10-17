@@ -17,13 +17,13 @@ import {MdNotificationsActive} from "react-icons/md"
 import {GiSecretBook} from "react-icons/gi"
 
 const types = [
-  "Select the Type",
-  <HiCake color="rgb(255, 0, 128)"/>,
-  <MdOutlineBusinessCenter color="rgb(141, 69, 17)"/>,
-  <MdOutlineFestival color="orange"/>,
-  <GiSecretBook color="rgb(0, 174, 255)"/>,
-  <MdFamilyRestroom color="green"/>,
-  <MdNotificationsActive color="red"/>
+  "Types",
+  <HiCake color="rgb(255, 0, 128)" size="25px"/>,
+  <MdOutlineBusinessCenter color="rgb(141, 69, 17)" size="25px"/>,
+  <MdOutlineFestival color="orange" size="25px"/>,
+  <GiSecretBook color="rgb(0, 174, 255)" size="25px"/>,
+  <MdFamilyRestroom color="green" size="25px"/>,
+  <MdNotificationsActive color="red" size="25px"/>
 ];
 
 const TypesOfEvent = () => {
