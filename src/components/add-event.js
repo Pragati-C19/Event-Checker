@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import TypesOfEvent from "./type-of-event";
-
+import DatePicker from "./date-picker";
 
 //css for modal
 const modalStyle = {
@@ -22,7 +22,6 @@ const modalStyle = {
 };
 
 const AddEvent = ({}) => {
-
   //to open and close modal
   const [modalOpen, setModalOpen] = useState(false);
   const isModalOpen = () => setModalOpen(true);
@@ -71,31 +70,21 @@ const AddEvent = ({}) => {
 
           {/* Third we have Dropdown Menu for types of Event | we will get Event type */}
           <div>
-            <TypesOfEvent/>
+            <TypesOfEvent />
           </div>
-
+          <br />
           {/* Forth we have Start date Holder | we will see when the event starts */}
-          <div className="event-control">
-            <TextField
-              fullWidth
-              id="outlined-textarea"
-              label="Description"
-              placeholder="Add Event Description"
-              multiline
-            />
+          <div>
+            <DatePicker userName="Start Date" />
           </div>
 
+          <br />
           {/* Fifth we have End date Holder | with the help of this we can see when the event ends */}
-          <div className="event-control">
-            <TextField
-              fullWidth
-              id="outlined-textarea"
-              label="Description"
-              placeholder="Add Event Description"
-              multiline
-            />
+          <div>
+            <DatePicker userName="End Date" />
           </div>
 
+          <br/>
           <input type="submit" value="Save Event" className="btn btn-block" />
         </Box>
       </Modal>
