@@ -40,6 +40,7 @@ code {
 
 .event-control {
   margin: 20px 0;
+  background-color: aqua;               /* FIXME: delete this*/
 }
 
 .event-control label {
