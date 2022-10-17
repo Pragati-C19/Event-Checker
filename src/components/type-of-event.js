@@ -1,19 +1,26 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import { useState, useRef } from 'react';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import { useState, useRef } from "react";
 
-const types = ['Select the Type','Cake', 'Bussiness', 'fire', 'Book', 'family','Red Dot'];
+const types = [
+  "Select the Type",
+  "Cake",
+  "Bussiness",
+  "fire",
+  "Book",
+  "family",
+  "Red Dot",
+];
 
-const TypesOfEvent =()=> {
-
+const TypesOfEvent = () => {
   const [typesMenu, setTypesMenu] = useState(false);
   const anchorRef = useRef(null);
   const [selectedType, setSelectedType] = useState(0);
@@ -42,57 +49,66 @@ const TypesOfEvent =()=> {
 
   return (
     <>
-      <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-        <Button onClick={handleClick}>{types[selectedType]}</Button>
+      <ButtonGroup
+        variant="contained"
+        ref={anchorRef}
+        aria-label="split button"
+      >
+        {/* select the type side button */}
+        <Button onClick={handleClick} color="success">
+          {types[selectedType]}
+        </Button>
         <Button
-          size="small"
-          aria-controls={typesMenu ? 'split-button-menu' : undefined}
-          aria-expanded={typesMenu ? 'true' : undefined}
+          size="small" //this is for arrow button size
+          color="secondary"
+          aria-controls={typesMenu ? "split-button-menu" : undefined}
+          aria-expanded={typesMenu ? "true" : undefined}
           aria-label="select merge strategy"
           aria-haspopup="menu"
-          bgcolor="white"
           onClick={handleToggle}
         >
           <ArrowDropDownIcon />
         </Button>
       </ButtonGroup>
-      <Popper
+      <Popper //you can't change it this effects dropdown arrow
         open={typesMenu}
         anchorEl={anchorRef.current}
         role={undefined}
         transition
         disablePortal
       >
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{
-                bgcolor:"white",
-              transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom',
-            }}
-          >
-            <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu" autoFocusItem>
-                  {types.map((option, index) => (
-                    <MenuItem
-                      key={option}
-                      disabled={index === 0}
-                      selected={index === selectedType}
-                      onClick={(event) => handleMenuItemClick(event, index)}
-                    >
-                      {option}
-                    </MenuItem>
-                  ))}
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
+        {
+          // this function is for list
+          ({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin:
+                  placement === "top" ? "center top" : "center bottom",
+              }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList id="split-button-menu" autoFocusItem>
+                    {types.map((option, index) => (
+                      <MenuItem
+                        key={option}
+                        disabled={index === 0}
+                        selected={index === selectedType}
+                        onClick={(event) => handleMenuItemClick(event, index)}
+                      >
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )
+        }
       </Popper>
     </>
   );
-}
+};
 
-export default TypesOfEvent
+export default TypesOfEvent;

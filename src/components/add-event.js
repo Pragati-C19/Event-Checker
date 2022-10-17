@@ -70,7 +70,7 @@ const AddEvent = ({}) => {
           </div>
 
           {/* Third we have Dropdown Menu for types of Event | we will get Event type */}
-          <div className="event-control">
+          <div>
             <TypesOfEvent/>
           </div>
 
