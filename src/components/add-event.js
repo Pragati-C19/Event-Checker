@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import TypesOfEvent from "./type-of-event";
 import DatePicker from "./date-picker";
+import { Stack } from "@mui/system";
 
 //css for modal
 const modalStyle = {
@@ -73,19 +74,28 @@ const AddEvent = ({}) => {
             <TypesOfEvent />
           </div>
           <br />
+
           {/* Forth we have Start date Holder | we will see when the event starts */}
           <div>
             <DatePicker userName="Start Date" />
           </div>
-
           <br />
+
           {/* Fifth we have End date Holder | with the help of this we can see when the event ends */}
           <div>
             <DatePicker userName="End Date" />
           </div>
+          <br />
 
-          <br/>
-          <input type="submit" value="Save Event" className="btn btn-block" />
+          {/* You can add justifyContent="center" alignItems="center" here to center the buttons  */}
+          <Stack direction="row" spacing={2}>
+            <Button variant="outlined" color="success">
+              Save
+            </Button>
+            <Button variant="outlined" color="error">
+              Cancel
+            </Button>
+          </Stack>
         </Box>
       </Modal>
     </div>
