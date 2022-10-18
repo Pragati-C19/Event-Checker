@@ -14,7 +14,6 @@ export default function EventList({setQuery, filteredList}) {
   return (
     //it's just a simple table
     <div>
-      <TextField onChange={(e)=> setQuery(e.target.value)}/>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

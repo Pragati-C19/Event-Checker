@@ -113,7 +113,7 @@ function App() {
       <MdDeleteForever color="red" size="25px" />
     ),
     createData(
-      "Read your current book",
+      "read your current book",
       "Book",
       "13th Oct 2022",
       "13th Oct 2022",
@@ -170,8 +170,8 @@ function App() {
 
   return (
     <>
-      <Navbar onClick={isModalOpen}/> {/* query={query} filteredNames={filteredList} onChangeQuery={onChangeQuery} */}
-      <EventList rows={rows} setQuery={setQuery} filteredList={filteredList}/>
+      <Navbar onClick={isModalOpen} setQuery={setQuery}/> {/* query={query} filteredNames={filteredList} onChangeQuery={onChangeQuery} */}
+      <EventList setQuery={setQuery} filteredList={filteredList}/>
       <AddEvent onSave={saveEvent} isModalClose={isModalClose} onClickCancel={isModalClose} modalOpen={modalOpen} />
 
       <h3>Pragati Chothe</h3>
