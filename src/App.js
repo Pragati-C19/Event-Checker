@@ -171,7 +171,7 @@ function App() {
   return (
     <>
       <Navbar onClick={isModalOpen} setQuery={setQuery}/> {/* query={query} filteredNames={filteredList} onChangeQuery={onChangeQuery} */}
-      <EventList setQuery={setQuery} filteredList={filteredList}/>
+      <EventList filteredList={filteredList}/>
       <AddEvent onSave={saveEvent} isModalClose={isModalClose} onClickCancel={isModalClose} modalOpen={modalOpen} />
 
       <h3>Pragati Chothe</h3>
