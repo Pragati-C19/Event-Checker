@@ -61,6 +61,12 @@ function App() {
     },
   ]);
 
+  //to open and close modal
+  const [modalOpen, setModalOpen] = useState(false);
+  const isModalOpen = () => setModalOpen(true);
+  const isModalClose = () => setModalOpen(false);
+
+
   //Save Event
   const saveEvent = (task) => {
     //console.log(task)
@@ -79,9 +85,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onClick={isModalOpen}/>
       <EventList />
-      <AddEvent onSave={saveEvent} />
+      <AddEvent onSave={saveEvent} isModalClose={isModalClose} onClickCancel={isModalClose} modalOpen={modalOpen} />
 
       <h3>Pragati Chothe</h3>
       {events.length > 0 ? (

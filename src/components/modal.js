@@ -22,15 +22,11 @@ const modalStyle = {
   p: 4,
 };
 
-const AddEvent = ({ onSave }) => {
-  //to open and close modal
-  const [modalOpen, setModalOpen] = useState(false);
-  const isModalOpen = () => setModalOpen(true);
-  const isModalClose = () => setModalOpen(false);
+const AddEvent = ({ onSave, isModalClose, onClickCancel, modalOpen }) => {
 
   //to add event after click on save
-  const [title, setTitle] = useState(" ");
-  const [description, setDescription] = useState(" ");
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
 
   //below three is not working now
   const [typesOfEvent, setTypesOfEvent] = useState({ TypesOfEvent });
@@ -48,19 +44,18 @@ const AddEvent = ({ onSave }) => {
     setTypesOfEvent({});
     setStartDate({});
     setEndDate({});
+    
   };
 
   //this alert msg is to see wheather the event is added or not
 
   return (
     <div>
-      {/* When you click on mopen modal then modal will open */}
-      <Button onClick={isModalOpen}>Open modal</Button>
 
       {/*This is the content of modal */}
       <Modal
         open={modalOpen}
-        onClose={isModalClose}
+        onClose={isModalClose}           //use to close modal by click anywhere on window
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -143,7 +138,7 @@ const AddEvent = ({ onSave }) => {
             >
               Save
             </Button>
-            <Button variant="outlined" color="error" onClick={isModalClose}>
+            <Button variant="outlined" color="error" onClick={onClickCancel}>
               Cancel
             </Button>
           </Stack>

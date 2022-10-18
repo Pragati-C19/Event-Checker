@@ -62,7 +62,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Navbar = () => {
+const Navbar = ({onClick}) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -147,7 +147,7 @@ const Navbar = () => {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
-            <Button variant="contained" color="success">
+            <Button variant="contained" color="success" onClick={onClick}> {/* I had try to do some other feature but it didn't work so using onClick prop here */}
               Add New Event
             </Button>
             <Box sx={{ display: { xs: "none", md: "flex" } }}></Box>
