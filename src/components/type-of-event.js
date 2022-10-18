@@ -9,21 +9,21 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import { useState, useRef } from "react";
-import { HiCake } from "react-icons/hi"
-import {MdOutlineBusinessCenter} from "react-icons/md"
-import {MdOutlineFestival} from "react-icons/md"
-import {MdFamilyRestroom} from "react-icons/md"
-import {MdNotificationsActive} from "react-icons/md"
-import {GiSecretBook} from "react-icons/gi"
+import { HiCake } from "react-icons/hi";
+import { MdOutlineBusinessCenter } from "react-icons/md";
+import { MdOutlineFestival } from "react-icons/md";
+import { MdFamilyRestroom } from "react-icons/md";
+import { MdNotificationsActive } from "react-icons/md";
+import { GiSecretBook } from "react-icons/gi";
 
 const types = [
   "Types",
-  <HiCake color="rgb(255, 0, 128)" size="25px"/>,
-  <MdOutlineBusinessCenter color="rgb(141, 69, 17)" size="25px"/>,
-  <MdOutlineFestival color="orange" size="25px"/>,
-  <GiSecretBook color="rgb(0, 174, 255)" size="25px"/>,
-  <MdFamilyRestroom color="green" size="25px"/>,
-  <MdNotificationsActive color="red" size="25px"/>
+  <HiCake color="rgb(255, 0, 128)" size="25px" />,
+  <MdOutlineBusinessCenter color="rgb(141, 69, 17)" size="25px" />,
+  <MdOutlineFestival color="orange" size="25px" />,
+  <GiSecretBook color="rgb(0, 174, 255)" size="25px" />,
+  <MdFamilyRestroom color="green" size="25px" />,
+  <MdNotificationsActive color="red" size="25px" />,
 ];
 
 const TypesOfEvent = () => {
@@ -37,6 +37,7 @@ const TypesOfEvent = () => {
   };
 
   const handleMenuItemClick = (event, index) => {
+    console.log({ event, index });
     setSelectedType(index);
     setTypesMenu(false);
   };
@@ -98,7 +99,7 @@ const TypesOfEvent = () => {
                   <MenuList id="split-button-menu" autoFocusItem>
                     {types.map((option, index) => (
                       <MenuItem
-                        key={option}
+                        key={index}
                         disabled={index === 0}
                         selected={index === selectedType}
                         onClick={(event) => handleMenuItemClick(event, index)}
