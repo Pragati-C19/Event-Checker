@@ -6,82 +6,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { FaEye } from "react-icons/fa";
-import { HiPencil } from "react-icons/hi";
-import { MdDeleteForever } from "react-icons/md";
+import { TextField } from "@mui/material";
 
-function createData(
-  title,
-  eventType,
-  startDate,
-  endDate,
-  viewEvent,
-  editEvent,
-  deleteEvent
-) {
-  return {
-    title,
-    eventType,
-    startDate,
-    endDate,
-    viewEvent,
-    editEvent,
-    deleteEvent,
-  };
-}
 
-const rows = [
-  createData(
-    "Event-1",
-    "Cake",
-    "13th Oct 2022",
-    "13th Oct 2022",
-    <FaEye color="green" size="25px" />,
-    <HiPencil color="royalblue" size="25px" />,
-    <MdDeleteForever color="red" size="25px" />
-  ),
-  createData(
-    "Event-2",
-    "Bussiness",
-    "13th Oct 2022",
-    "13th Oct 2022",
-    <FaEye color="green" size="25px" />,
-    <HiPencil color="royalblue" size="25px" />,
-    <MdDeleteForever color="red" size="25px" />
-  ),
-  createData(
-    "Event-3",
-    "Fire",
-    "13th Oct 2022",
-    "13th Oct 2022",
-    <FaEye color="green" size="25px" />,
-    <HiPencil color="royalblue" size="25px" />,
-    <MdDeleteForever color="red" size="25px" />
-  ),
-  createData(
-    "Event-4",
-    "Book",
-    "13th Oct 2022",
-    "13th Oct 2022",
-    <FaEye color="green" size="25px" />,
-    <HiPencil color="royalblue" size="25px" />,
-    <MdDeleteForever color="red" size="25px" />
-  ),
-  createData(
-    "Event-5",
-    "Red Flags",
-    "13th Oct 2022",
-    "13th Oct 2022",
-    <FaEye color="green" size="25px" />,
-    <HiPencil color="royalblue" size="25px" />,
-    <MdDeleteForever color="red" size="25px" />
-  ),
-];
+export default function EventList({setQuery, filteredList}) {
 
-export default function EventList() {
   return (
     //it's just a simple table
     <div>
+      <TextField onChange={(e)=> setQuery(e.target.value)}/>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -96,7 +29,7 @@ export default function EventList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {filteredList.map((row) => (
               <TableRow
                 key={row.title}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

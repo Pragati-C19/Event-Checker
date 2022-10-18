@@ -2,9 +2,12 @@ import React from "react";
 import "./App.css";
 import AddEvent from "./components/modal";
 import Navbar from "./components/navbar";
-import EventList from "./components/view-event-list";
 import Events from "./components/events";
+import EventList from "./components/view-event-list"
 import { useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { HiPencil } from "react-icons/hi";
+import { MdDeleteForever } from "react-icons/md";
 
 function App() {
   //Array of Event Objects
@@ -61,11 +64,93 @@ function App() {
     },
   ]);
 
+  function createData(
+    title,
+    eventType,
+    startDate,
+    endDate,
+    viewEvent,
+    editEvent,
+    deleteEvent
+  ) {
+    return {
+      title,
+      eventType,
+      startDate,
+      endDate,
+      viewEvent,
+      editEvent,
+      deleteEvent,
+    };
+  }
+  
+  const rows = [
+    createData(
+      "Pragati's Birthday",
+      "Cake",
+      "19/10/2022",
+      "19/10/2022",
+      <FaEye color="green" size="25px" />,
+      <HiPencil color="royalblue" size="25px" />,
+      <MdDeleteForever color="red" size="25px" />
+    ),
+    createData(
+      "Company Google meet with Manager",
+      "Bussiness",
+      "13th Oct 2022",
+      "13th Oct 2022",
+      <FaEye color="green" size="25px" />,
+      <HiPencil color="royalblue" size="25px" />,
+      <MdDeleteForever color="red" size="25px" />
+    ),
+    createData(
+      "Diwali Festival",
+      "Fire",
+      "13th Oct 2022",
+      "13th Oct 2022",
+      <FaEye color="green" size="25px" />,
+      <HiPencil color="royalblue" size="25px" />,
+      <MdDeleteForever color="red" size="25px" />
+    ),
+    createData(
+      "Read your current book",
+      "Book",
+      "13th Oct 2022",
+      "13th Oct 2022",
+      <FaEye color="green" size="25px" />,
+      <HiPencil color="royalblue" size="25px" />,
+      <MdDeleteForever color="red" size="25px" />
+    ),
+    createData(
+      "Meeting Alert",
+      "Red Flags",
+      "13th Oct 2022",
+      "13th Oct 2022",
+      <FaEye color="green" size="25px" />,
+      <HiPencil color="royalblue" size="25px" />,
+      <MdDeleteForever color="red" size="25px" />
+    ),
+  ];
+
   //to open and close modal
   const [modalOpen, setModalOpen] = useState(false);
   const isModalOpen = () => setModalOpen(true);
   const isModalClose = () => setModalOpen(false);
 
+  
+  /*/ query for search bar
+  const [query, setQuery] = useState('');
+  const filteredList=events.filter((item=>{
+    return item.title.includes(query)
+  }))
+  const onChangeQuery=(e)=>{
+    setQuery(e.target.value)
+  }*/
+  const [query, setQuery] = useState('');
+
+  const filteredList=rows.filter((item)=>{
+    return item.title.includes(query)
+  })
 
   //Save Event
   const saveEvent = (task) => {
@@ -85,8 +170,8 @@ function App() {
 
   return (
     <>
-      <Navbar onClick={isModalOpen}/>
-      <EventList />
+      <Navbar onClick={isModalOpen}/> {/* query={query} filteredNames={filteredList} onChangeQuery={onChangeQuery} */}
+      <EventList rows={rows} setQuery={setQuery} filteredList={filteredList}/>
       <AddEvent onSave={saveEvent} isModalClose={isModalClose} onClickCancel={isModalClose} modalOpen={modalOpen} />
 
       <h3>Pragati Chothe</h3>

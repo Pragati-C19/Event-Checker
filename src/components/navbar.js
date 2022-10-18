@@ -22,6 +22,7 @@ const darkTheme = createTheme({
   },
 });
 
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -62,7 +63,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Navbar = ({onClick}) => {
+const Navbar = ({onClick, query, filteredList, onChangeQuery}) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -145,6 +146,8 @@ const Navbar = ({onClick}) => {
               <StyledInputBase
                 placeholder="Search the Event…"
                 inputProps={{ "aria-label": "search" }}
+                value={query}
+                onChange={onChangeQuery}
               />
             </Search>
             <Button variant="contained" color="success" onClick={onClick}> {/* I had try to do some other feature but it didn't work so using onClick prop here */}
