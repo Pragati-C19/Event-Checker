@@ -18,12 +18,16 @@ import { GiSecretBook } from "react-icons/gi";
 
 const types = [
   "Types",
-  <HiCake color="rgb(255, 0, 128)" size="25px" />,
-  <MdOutlineBusinessCenter color="rgb(141, 69, 17)" size="25px" />,
-  <MdOutlineFestival color="orange" size="25px" />,
-  <GiSecretBook color="rgb(0, 174, 255)" size="25px" />,
-  <MdFamilyRestroom color="green" size="25px" />,
-  <MdNotificationsActive color="red" size="25px" />,
+  <HiCake alt="cake" color="rgb(255, 0, 128)" size="25px" />,
+  <MdOutlineBusinessCenter
+    alt="business"
+    color="rgb(141, 69, 17)"
+    size="25px"
+  />,
+  <MdOutlineFestival alt="festival" color="orange" size="25px" />,
+  <GiSecretBook alt="book" color="rgb(0, 174, 255)" size="25px" />,
+  <MdFamilyRestroom alt="family" color="green" size="25px" />,
+  <MdNotificationsActive alt="important" color="red" size="25px" />,
 ];
 
 const TypesOfEvent = () => {

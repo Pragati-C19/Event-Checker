@@ -126,7 +126,7 @@ const Navbar = ({onClick}) => {
         <AppBar position="static" color="primary">
           <Toolbar>
             <IconButton edge="start" color="inherit" sx={{ mr: 2 }}>
-              <img src={logoImg} height="50px" width="50px" />
+              <img src={logoImg} alt="Logo" height="50px" width="50px" />
             </IconButton>
 
             <Typography
