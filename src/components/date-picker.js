@@ -6,7 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { useState } from 'react';
 
-const DatePicker=(props)=> {
+const DatePicker=({userName})=> {
   const [date, setDate] = useState();
 
   const handleChange = (newDate) => {
@@ -17,7 +17,7 @@ const DatePicker=(props)=> {
     <div background-color="white">
     <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DesktopDatePicker
-         label={props.userName}
+         label={userName}
           inputFormat="DD/MM/YYYY"
           value={date}
           onChange={handleChange}

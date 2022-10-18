@@ -33,9 +33,9 @@ const AddEvent = ({ onSave }) => {
   const [description, setDescription] = useState(" ");
 
   //below three is not working now
-  const [typesOfEvent, setTypesOfEvent] = useState({TypesOfEvent});
-  const [startDate, setStartDate] = useState({DatePicker});
-  const [endDate, setEndDate] = useState({DatePicker});
+  const [typesOfEvent, setTypesOfEvent] = useState({ TypesOfEvent });
+  const [startDate, setStartDate] = useState({ DatePicker });
+  const [endDate, setEndDate] = useState({ DatePicker });
 
   const onClickSaveButton = (e) => {
     e.preventDefault();
@@ -101,10 +101,11 @@ const AddEvent = ({ onSave }) => {
           </div>
 
           {/* Third we have Dropdown Menu for types of Event | we will get Event type */}
-          <div
-          >
-            <TypesOfEvent  value={typesOfEvent}
-            onChange={(e) => setTypesOfEvent(e.target.value)}/>
+          <div>
+            <TypesOfEvent
+              value={typesOfEvent}
+              onChange={(e) => setTypesOfEvent(e.target.value)}
+            />
           </div>
           <br />
 
@@ -113,7 +114,10 @@ const AddEvent = ({ onSave }) => {
             <DatePicker
               userName="Start Date"
               value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
+              onChange={(e) => {
+                console.log({ date: e.format("DD/MM/YYYY") });
+                setStartDate(e.format("DD/MM/YYYY"));
+              }}
             />
 
             {/* Fifth we have End date Holder | with the help of this we can see when the event ends */}
