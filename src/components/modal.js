@@ -23,15 +23,14 @@ const modalStyle = {
 };
 
 const AddEvent = ({ onSave, isModalClose, onClickCancel, modalOpen }) => {
-
   //to add event after click on save
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
 
   //below three is not working now
-  const [typesOfEvent, setTypesOfEvent] = useState({ TypesOfEvent });
-  const [startDate, setStartDate] = useState({ DatePicker });
-  const [endDate, setEndDate] = useState({ DatePicker });
+  const [typesOfEvent, setTypesOfEvent] = useState(" ");
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
 
   const onClickSaveButton = (e) => {
     e.preventDefault();
@@ -41,21 +40,19 @@ const AddEvent = ({ onSave, isModalClose, onClickCancel, modalOpen }) => {
     setDescription("");
 
     //Don't know how should it right yet
-    setTypesOfEvent({});
-    setStartDate({});
-    setEndDate({});
-    
+    setTypesOfEvent();
+    setStartDate();
+    setEndDate();
   };
 
   //this alert msg is to see wheather the event is added or not
 
   return (
     <div>
-
       {/*This is the content of modal */}
       <Modal
         open={modalOpen}
-        onClose={isModalClose}           //use to close modal by click anywhere on window
+        onClose={isModalClose} //use to close modal by click anywhere on window
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
