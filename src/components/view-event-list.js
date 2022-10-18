@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 
 
 
-export default function EventList({filteredList}) {
+export default function EventList({filteredList, onClickDelete}) {
 
   return (
     //it's just a simple table
@@ -41,7 +41,7 @@ export default function EventList({filteredList}) {
                 <TableCell>{row.endDate}</TableCell>
                 <TableCell>{row.viewEvent}</TableCell>
                 <TableCell>{row.editEvent}</TableCell>
-                <TableCell>{row.deleteEvent}</TableCell>
+                <TableCell onClick={onClickDelete}>{row.deleteEvent}</TableCell>
               </TableRow>
             ))}
           </TableBody>

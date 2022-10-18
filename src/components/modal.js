@@ -31,10 +31,13 @@ const AddEvent = ({ onSave, isModalClose, onClickCancel, modalOpen }) => {
   const [typesOfEvent, setTypesOfEvent] = useState(" ");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
+  const [viewEvent, setViewEvent] = useState();
+  const [editEvent, setEditEvent] = useState();
+  const [deleteEvent, setDeleteEvent] = useState();
 
   const onClickSaveButton = (e) => {
     e.preventDefault();
-    onSave({ title, description, typesOfEvent, startDate, endDate });
+    onSave({ title, description, typesOfEvent, startDate, endDate, viewEvent, editEvent, deleteEvent });
 
     setTitle("");
     setDescription("");
