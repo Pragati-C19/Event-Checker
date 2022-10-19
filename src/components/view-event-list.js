@@ -7,10 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-
-
-export default function EventList({filteredList, onClickDelete}) {
-
+export default function EventList({ filteredList, onClickDelete }) {
   return (
     //it's just a simple table
     <div>
@@ -41,7 +38,9 @@ export default function EventList({filteredList, onClickDelete}) {
                 <TableCell>{row.endDate}</TableCell>
                 <TableCell>{row.viewEvent}</TableCell>
                 <TableCell>{row.editEvent}</TableCell>
-                <TableCell onClick={onClickDelete}>{row.deleteEvent}</TableCell>
+                <TableCell onClick={(e)=>onClickDelete(row.id,e)}>
+                  {row.deleteEvent}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

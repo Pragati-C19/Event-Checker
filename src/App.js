@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import AddEvent from "./components/modal";
 import Navbar from "./components/navbar";
-import Events from "./components/events";
-import EventList from "./components/view-event-list"
+import EventList from "./components/view-event-list";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { HiPencil } from "react-icons/hi";
@@ -12,6 +11,7 @@ import { MdDeleteForever } from "react-icons/md";
 function App() {
   //Array of Event Objects
   const [events, setEvents] = useState(createData);
+  var [filteredList, setFilteredList] = useState();
 
   function createData(
     id,
@@ -34,7 +34,7 @@ function App() {
       deleteEvent,
     };
   }
-  
+
   const rows = [
     createData(
       1,
@@ -88,41 +88,46 @@ function App() {
     ),
   ];
 
+
   //to open and close modal
   const [modalOpen, setModalOpen] = useState(false);
   const isModalOpen = () => setModalOpen(true);
   const isModalClose = () => setModalOpen(false);
 
-  
   // query for search bar
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
-  const filteredList=rows.filter((item)=>{
-    return item.title.includes(query)
-  })
+  filteredList = rows.filter((item) => {
+    return item.title.toLowerCase().includes(query.toLowerCase());
+  });
 
   //Save Event
   const saveEvent = (task) => {
     //console.log(task)
     const id = Math.floor(Math.random() * 10000) + 1; //unique Id is able to give for new events after save
     const newEvent = { id, ...task };
-    //setEvents([...events, newEvent]);
+    setEvents([...rows, newEvent]);
     console.log(id);
     console.log(newEvent);
   };
 
   //Delete Event
-  const deleteEvent = (id) => {
-    //console.log("delete",id)
+  const deleteEvent = (id, e) => {
+    console.log("delete", id);
 
-    setQuery(rows.filter((task) => task.id !== id));
+    setFilteredList(rows.filter((task,e) => task.id !== rows.id));
   };
 
   return (
     <>
-      <Navbar onClick={isModalOpen} setQuery={setQuery}/> 
-      <EventList filteredList={filteredList} onClickDelete={deleteEvent}/>
-      <AddEvent onSave={saveEvent} isModalClose={isModalClose} onClickCancel={isModalClose} modalOpen={modalOpen} />
+      <Navbar onClick={isModalOpen} setQuery={setQuery} />
+      <EventList filteredList={filteredList} onClickDelete={deleteEvent} />
+      <AddEvent
+        onSave={saveEvent}
+        isModalClose={isModalClose}
+        onClickCancel={isModalClose}
+        modalOpen={modalOpen}
+      />
 
       <h3>Pragati Chothe</h3>
     </>
